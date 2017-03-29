@@ -56,18 +56,19 @@ public class LinkedList {
 
         Node node = new Node(value);
 
-        head = node;
-
         if (head == null) {
             head = node;
         } else {
             Node currentNode = head;
+
             while (currentNode.child != null){
                 currentNode = currentNode.child;
             }
 
             currentNode.child = node;
         }
+
+        size++;
 
         return this;
     }

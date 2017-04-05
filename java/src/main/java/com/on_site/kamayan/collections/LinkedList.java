@@ -83,11 +83,19 @@ public class LinkedList {
     }
 
     public Object get(int index) {
-        throw Kamayan.todo(
-            "The get(int) method should retrieve the value at the given index.",
-            "The index must be within the bounds of the LinkedList, or an",
-            "IndexOutOfBoundsException should be thrown."
-        );
+        // throw Kamayan.todo(
+        //     "The get(int) method should retrieve the value at the given index.",
+        //     "The index must be within the bounds of the LinkedList, or an",
+        //     "IndexOutOfBoundsException should be thrown."
+        // );
+
+        checkBounds(index);
+        Node currentNode = head;
+
+        for (int i = 0; i < index; i++){
+            currentNode = currentNode.child;
+        }
+        return currentNode.value;
     }
 
     public Object set(int index, Object value) {

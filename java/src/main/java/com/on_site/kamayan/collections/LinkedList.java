@@ -40,11 +40,11 @@ public class LinkedList {
         //     "return value must be this."
         // );
 
-        head = new Node(value, head);
-        size++;
+        // head = new Node(value, head);
+        // size++;
 
-        // return null;
-        return this;
+        return null;
+        // return this;
     }
 
     public LinkedList add(Object value) {

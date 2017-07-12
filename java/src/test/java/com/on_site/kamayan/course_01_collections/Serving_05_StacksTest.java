@@ -128,7 +128,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertThrows(StackOverflowException.class, () -> otherStack.push(45));
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPushBeyondMaxSizeDoesntAddToSizeOrElements() throws Exception {
         Stack stack = new Stack(5);
@@ -140,14 +140,14 @@ public class Serving_05_StacksTest extends TestCase {
         assertEquals(Arrays.asList(42, 43, 1, 2, 3), actualElements);
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPopRaisesAnErrorIfTheStackIsEmpty() throws Exception {
         Stack stack = new Stack();
         assertThrows(IndexOutOfBoundsException.class, () -> stack.pop());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPopReturnsTheLastElementOfTheStack() throws Exception {
         Stack stack = new Stack().push(42);
@@ -156,7 +156,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertEquals(43, stack.pop());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPopAltersTheSizeOfTheStack() throws Exception {
         Stack stack = new Stack().push(42).push(43);
@@ -167,7 +167,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertEquals(0, stack.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPopRaisesAnErrorIfTheStackIsEmptyAfterBeingEmptied() throws Exception {
         Stack stack = new Stack().push(42);
@@ -175,7 +175,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertThrows(IndexOutOfBoundsException.class, () -> stack.pop());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPopReturnsTheLastElementAdded() throws Exception {
         Stack stack = new Stack().push(42).push(43).push(1).push(2);
@@ -185,7 +185,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertEquals(42, stack.pop());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testEmptyReturnsTrueForNewStacks() throws Exception {
         Stack stack = new Stack();
@@ -195,7 +195,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertTrue(stack.isEmpty());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testEmptyReturnsTrueForStacksThatHaveBeenEmptied() throws Exception {
         Stack stack = new Stack().push(42);
@@ -203,7 +203,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertTrue(stack.isEmpty());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testEmptyReturnsFalseForNonEmptyStacks() throws Exception {
         Stack stack = new Stack().push(42);
@@ -212,7 +212,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertFalse(stack.isEmpty());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testEmptyReturnsFalseForStacksThatHaveBeenEmptiedAndGrownAgain() throws Exception {
         Stack stack = new Stack().push(42).push(43);
@@ -222,7 +222,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertFalse(stack.isEmpty());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPeekRaisesAnErrorIfTheStackIsEmpty() throws Exception {
         Stack stack = new Stack();
@@ -232,7 +232,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertThrows(IndexOutOfBoundsException.class, () -> stack.peek());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPeekReturnsTheTopValueOfTheStack() throws Exception {
         Stack stack = new Stack().push(42);
@@ -241,7 +241,7 @@ public class Serving_05_StacksTest extends TestCase {
         assertEquals(43, stack.peek());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void testPeekCanBeCalledMultipleTimesWithoutAffectingTheSize() throws Exception {
         Stack stack = new Stack().push(42);

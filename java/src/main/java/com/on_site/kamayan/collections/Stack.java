@@ -46,19 +46,21 @@ public class Stack {
         //     "stack. An IndexOutOfBoundsException should be raised if the Stack",
         //     "is empty."
         // );
-        return this;
+        return list.deleteLast();
     }
 
     public boolean isEmpty() {
-        throw Kamayan.todo(
-            "The isEmpty() method should return whether or not the size is 0."
-        );
+        // throw Kamayan.todo(
+        //     "The isEmpty() method should return whether or not the size is 0."
+        // );
+        return size() == 0;
     }
 
     public Object peek() {
-        throw Kamayan.todo(
-            "The peek() method should return the last value in the stack,",
-            "without removing any elements in the stack."
-        );
+        // throw Kamayan.todo(
+        //     "The peek() method should return the last value in the stack,",
+        //     "without removing any elements in the stack."
+        // );
+        return list.last();
     }
 }

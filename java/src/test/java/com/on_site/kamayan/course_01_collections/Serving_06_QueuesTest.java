@@ -65,7 +65,7 @@ import org.junit.Test;
  *   => c          +
  */
 public class Serving_06_QueuesTest extends TestCase {
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void internalCollectionImplementsEach() throws Exception {
         // The each method will be used for other tests, so if you decided not to use
@@ -83,7 +83,7 @@ public class Serving_06_QueuesTest extends TestCase {
         return result;
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void enqueueAddsElements() throws Exception {
         Queue queue = new Queue();
@@ -96,7 +96,7 @@ public class Serving_06_QueuesTest extends TestCase {
         assertEquals(4, queue.size());
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void enqueueAddsToTheEndOfTheQueue() throws Exception {
         Queue queue = new Queue();
@@ -111,7 +111,7 @@ public class Serving_06_QueuesTest extends TestCase {
         assertEquals(Arrays.asList(42, 43, 1, 2), actualElements);
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void enqueueReturnsSelfSoItCanBeChained() throws Exception {
         Queue queue = new Queue();
@@ -119,7 +119,7 @@ public class Serving_06_QueuesTest extends TestCase {
         assertEquals(queue, queue.enqueue(43));
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void enqueueCanBeCalledALot() throws Exception {
         Queue queue = new Queue();

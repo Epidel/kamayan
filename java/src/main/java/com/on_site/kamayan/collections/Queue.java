@@ -17,11 +17,14 @@ public class Queue {
     }
 
     public Queue enqueue(Object value) {
-        throw Kamayan.todo(
-            "The enqueue(Object) method should add the argument to the end of",
-            "the queue, which should increase the size by 1. The return value",
-            "must be this."
-        );
+        // throw Kamayan.todo(
+        //     "The enqueue(Object) method should add the argument to the end of",
+        //     "the queue, which should increase the size by 1. The return value",
+        //     "must be this."
+        // );
+
+        list.add(value);
+        return this;
     }
 
     public Object dequeue() {

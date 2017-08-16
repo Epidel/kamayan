@@ -23,28 +23,33 @@ public class Queue {
         //     "must be this."
         // );
 
-        list.add(value);
-        return this;
+        // list.add(value);
+        // return this;
+
+        return list.add(value) != null ? this : this;
     }
 
     public Object dequeue() {
-        throw Kamayan.todo(
-            "The dequeue() method should remove and return the first value in",
-            "the queue. An IndexOutOfBoundsException should be thrown if the",
-            "Queue is empty."
-        );
+        // throw Kamayan.todo(
+        //     "The dequeue() method should remove and return the first value in",
+        //     "the queue. An IndexOutOfBoundsException should be thrown if the",
+        //     "Queue is empty."
+        // );
+        return list.deleteFirst();
     }
 
     public boolean isEmpty() {
-        throw Kamayan.todo(
-            "The isEmpty() method should return whether or not the size is 0."
-        );
+        // throw Kamayan.todo(
+        //     "The isEmpty() method should return whether or not the size is 0."
+        // );
+        return size() == 0;
     }
 
     public Object peek() {
-        throw Kamayan.todo(
-            "The peek() method should return the first value in the queue,",
-            "without removing any elements in the queue."
-        );
+        // throw Kamayan.todo(
+        //     "The peek() method should return the first value in the queue,",
+        //     "without removing any elements in the queue."
+        // );
+        return list.first();
     }
 }

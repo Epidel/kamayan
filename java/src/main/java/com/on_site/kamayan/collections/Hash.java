@@ -34,8 +34,16 @@ public class Hash {
     }
 
     public Hash put(Object key, Object value) {
-        throw Kamayan.todo(
-        );
+        // throw Kamayan.todo(
+
+        // );
+
+        if (key == null) {
+            throw new NullPointerException("No");
+        }
+
+        this.size++;
+        return this;
     }
 
     public Object get(Object key) {

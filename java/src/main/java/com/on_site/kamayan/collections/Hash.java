@@ -1,6 +1,7 @@
 package com.on_site.kamayan.collections;
 
 import com.on_site.kamayan.Kamayan;
+import com.on_site.kamayan.Ref;
 
 public class Hash {
     private DoublyLinkedList[] hash;
@@ -8,7 +9,7 @@ public class Hash {
 
     private static class Entry {
         private final Object key;
-        private final Object value;
+        private Object value;
 
         public Entry(Object key, Object value) {
             this.key = key;
@@ -22,6 +23,10 @@ public class Hash {
         public Object getValue() {
             return value;
         }
+
+        public void setValue(Object value) {
+            this.value = value;
+        }
     }
 
     public Hash() {
@@ -34,25 +39,103 @@ public class Hash {
     }
 
     public Hash put(Object key, Object value) {
-        // throw Kamayan.todo(
-
-        // );
-
+        //throw Kamayan.todo(
+        //);
         if (key == null) {
-            throw new NullPointerException("No");
+            throw new NullPointerException("Key cannot be null!");
         }
 
-        this.size++;
+        reSizeIfNeeded();
+        int index = hashedIndex(key);
+        DoublyLinkedList list = hash[index];
+
+        if (list == null) {
+            list = new DoublyLinkedList();
+            hash[index] = list;
+        }
+
+        Entry entry = find(list, key);
+
+        if (entry == null) {
+            list.add(new Entry(key, value));
+            size++;
+        } else {
+            entry.setValue(value);
+        }
+
         return this;
     }
 
     public Object get(Object key) {
-        throw Kamayan.todo(
-        );
+        //throw Kamayan.todo(
+        //);
+        int index = hashedIndex(key);
+        DoublyLinkedList list = hash[index];
+
+        if (list == null) {
+            throw new MissingKeyException("Cannot find entry for " + key);
+        }
+
+        Entry entry = find(list, key);
+
+        if (entry == null) {
+            throw new MissingKeyException("Cannot find entry for " + key);
+        }
+
+        return entry.getValue();
+    }
+
+    private Entry find(DoublyLinkedList list, Object key) {
+        Ref<Entry> entry = new Ref<>();
+
+        list.each((element) -> {
+            Entry elementEntry = (Entry) element;
+
+            if (elementEntry.getKey().equals(key)) {
+                entry.set(elementEntry);
+            }
+        });
+
+        return entry.get();
+    }
+
+    private void reSizeIfNeeded() {
+        int threshold = (int) (hash.length * 0.75);
+
+        if (size() + 1 <= threshold) {
+            return;
+        }
+
+        DoublyLinkedList[] oldHash = this.hash;
+        this.hash = new DoublyLinkedList[oldHash.length * 2];
+
+        for (DoublyLinkedList list : oldHash) {
+            if (list == null) {
+                continue;
+            }
+
+
+            list.each((object) -> {
+                Entry entry = (Entry) object;
+                put(entry.key, entry.value);
+            });
+        }
+    }
+
+    private int hashedIndex(Object key) {
+        return Math.abs(key.hashCode() % hash.length);
     }
 
     public boolean contains(Object key) {
-        throw Kamayan.todo(
-        );
+        int index = hashedIndex(key);
+        DoublyLinkedList list = hash[index];
+
+        if (list == null) {
+            return false;
+        }
+
+        Entry entry = find(list, key);
+        return entry != null;
+
     }
 }
